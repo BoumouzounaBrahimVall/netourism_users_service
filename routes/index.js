@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
   }
 });
 app.use('/auth', Auth);
+
 app.get('/admin', Verify, VerifyRole, (req, res) => {
   res.status(200).json({
     status: 'success',

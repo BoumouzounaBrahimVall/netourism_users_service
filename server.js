@@ -18,7 +18,7 @@ server.use(express.json());
 // Set up mongoose's promise to global promise
 mongoose.promise = global.Promise;
 mongoose.set('strictQuery', false);
-console.log("URI:"+URI);
+//console.log("URI:"+URI);
 mongoose
   .connect(URI, {
     useNewUrlParser: true,
@@ -28,7 +28,7 @@ mongoose
   .catch((err) => console.log("here we are : "+err));
 
 // === 4 - CONFIGURE ROUTES ===
-// Configure Route
+// Configure Route 
 server.use(App);
 
 // === 5 - START UP SERVER ===

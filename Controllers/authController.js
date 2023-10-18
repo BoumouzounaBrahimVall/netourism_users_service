@@ -102,7 +102,7 @@ export async function Login(req, res) {
 }
 
 /**
- * @route POST /auth/logout
+ * @route GET /auth/logout
  * @desc Logout user
  * @access private
  */
@@ -110,8 +110,8 @@ export async function Logout(req, res) {
   try {
     const authHeader = req.headers['cookie']; // get the session cookie from request header
     if (!authHeader) return res.sendStatus(204); // No content
-    const cookie = authHeader.split('=')[1]; // If there is, split the cookie string to get the actual jwt token
-    const accessToken = cookie.split(';')[0];
+    const cookie = authHeader.split('=')[1]; //(sesseionId=token;) If there is, split the cookie string to get the actual jwt token
+    const accessToken = cookie.split(';')[0];// (token;)
     const checkIfBlacklisted = await Blacklist.findOne({ token: accessToken }); // Check if that token is blacklisted
     // if true, send a no content response.
     if (checkIfBlacklisted) return res.sendStatus(204);
