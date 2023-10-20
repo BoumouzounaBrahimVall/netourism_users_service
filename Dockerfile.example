@@ -21,6 +21,3 @@ EXPOSE 3000
 
 # Define the command to start your application
 CMD ["npm", "start"]
-
-# docker build -t user-service .
-# docker container run -d -p 3000:3000 --name user-service user-service
