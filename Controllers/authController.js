@@ -79,7 +79,7 @@ export async function Login(req, res) {
       });
 
     let options = {
-      maxAge: 20 * 60 * 1000, // would expire in 20minutes
+      maxAge: 43200 * 60 * 1000, // would expire in 43200mins --> 1 month
       httpOnly: true, //todo::<needs to be tested with mobile>: The cookie is only accessible by the web server
       secure: true,
       sameSite: 'None',
