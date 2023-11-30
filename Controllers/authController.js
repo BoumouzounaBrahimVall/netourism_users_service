@@ -88,6 +88,7 @@ export async function Login(req, res) {
     res.cookie('SessionID', token, options); // set the token to response header, so that the client sends it back on each subsequent request
     res.status(200).json({
       status: 'success',
+      data: [user.first_name, user.last_name],
       message: 'You have successfully logged in.',
     });
   } catch (err) {
